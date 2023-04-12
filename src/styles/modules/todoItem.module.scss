@@ -30,7 +30,7 @@
 	cursor: pointer;
 	transition: 0.3s ease background-color;
 	&:hover {
-		background-color: var(--grey-2);
+		background-color: var(--grey);
 	}
 	svg {
 		width: 100%;
@@ -74,7 +74,7 @@
 	font-size: 2rem;
 	padding: 0.5rem;
 	border-radius: 4px;
-	background-color: var(--gray-1);
+	background-color: var(--bg-1);
 	color: var(--black-2);
 	display: flex;
 	align-items: center;
@@ -82,6 +82,6 @@
 	cursor: pointer;
 	transition: 0.3s ease background-color;
 	&:hover {
-		background-color: var(--gray-2);
+		background-color: var(--grey);
 	}
 }
