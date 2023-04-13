@@ -1,9 +1,16 @@
-import React from 'react';
-import style from '../styles/modules/button.module.scss'
+import React , { Children }from 'react';
+import style from '../styles/modules/button.module.scss';
+import { getClasses } from '../utilities/getClasses';
 
-function Button({children}) {
+
+const buttonTypes = {
+    primary: 'primary',
+    secondary: 'secondary',
+};
+
+function Button({ children, variant = 'primary' }) {
   return (
-    <button className={style.button} type="button">{ children }</button>
+    <button className={getClasses([style.button])} type="button">{ children }</button>
   )
 }
 
