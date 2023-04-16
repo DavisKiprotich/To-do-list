@@ -16,7 +16,7 @@ function Todomodel() {
                     <input type='text' id='title' />
                 </label>   
                 <label htmlFor='status'>
-                    Title
+                    Status
                     <input type='status' id='status' />
                 </label>   
             </form>
