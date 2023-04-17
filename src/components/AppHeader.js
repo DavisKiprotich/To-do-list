@@ -7,7 +7,7 @@ function AppHeader() {
   const { modelOpen, setModelOpen } = useState(true);
   return (
     <div className={styles.appHeader}>
-    <Button variant='primary' onClick={() => setModelOpen(true)}>Add Task</Button>
+    <Button variant="primary" onClick={() => setModelOpen(true)}>Add Task</Button>
     <SelectButton id='status'>
       <option value='open'>OPEN</option>
       <option value='working'>WORKING</option>
