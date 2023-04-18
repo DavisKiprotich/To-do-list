@@ -5,10 +5,15 @@ import Button from './Button';
 
 function Todomodel({ modelOpen, setModelOpen }) {
     const [title, setTitle] = useState('');
-    let [description, setDescription] = useState('');
-    let [status, setStatus] = useState('open');
-    let [deadline, setDeadline] = useState('');
-    let [tag, setTag] = useState('');
+    const [description, setDescription] = useState('');
+    const [tag, setTag] = useState('');
+    const [status, setStatus] = useState('open');
+    const [deadline, setDeadline] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log({ title, description, tag, status, deadline })
+    }
   return (
 
     modelOpen && (
@@ -22,7 +27,7 @@ function Todomodel({ modelOpen, setModelOpen }) {
                 >
                     <MdOutlineClose/>
                 </div>
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
                     <h1 className={styles.formTitle}>Add Task</h1>
                     <label htmlFor='title'>
                         Title
@@ -42,7 +47,7 @@ function Todomodel({ modelOpen, setModelOpen }) {
                         onChange={(e) => setTag(e.target.value)} />
                     </label>   
                     <label htmlFor='deadline'>
-                        DEADLINE
+                        Deadline
                         <input type='date' id='deadline' value={deadline}
                         onChange={(e) => setDeadline(e.target.value)}
                          />
