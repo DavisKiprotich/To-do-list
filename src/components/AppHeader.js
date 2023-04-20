@@ -4,7 +4,7 @@ import styles from '../styles/modules/app.module.scss';
 import Todomodel from './Todomodel';
 
 function AppHeader() {
-  const { modelOpen, setModelOpen } = useState(true);
+  const [ modelOpen, setModelOpen ] = useState(false);
   return (
     <div className={styles.appHeader}>
     <Button variant="primary" onClick={() => setModelOpen(true)}>Add Task</Button>

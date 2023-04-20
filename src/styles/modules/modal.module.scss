@@ -24,12 +24,12 @@
 }
 .closeButton {
 	position: absolute;
-	top: -10px;
+	top: -5px;
 	right: 0;
 	transform: translateY(-100%);
 	font-size: 2.5rem;
-	padding: 0.5rem;
-	border-radius: 4px;
+	padding: 0.3rem;
+	border-radius: 3px;
 	background-color: var(--bg-2);
 	color: var(--black-2);
 	display: flex;
@@ -39,7 +39,7 @@
 	transition: 0.3s ease all;
 	z-index: -1;
 	&:hover {
-		background-color: #e32525;
+		background-color: #e07D54;
 		color: white;
 	}
 }

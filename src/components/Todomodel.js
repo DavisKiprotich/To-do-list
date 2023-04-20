@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md'
 import Button from './Button';
-import { addTodo } from '../slices/todoSlice';
+import  { addTodo } from '../slices/todoSlice';
+import { useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 
 function Todomodel({ modelOpen, setModelOpen }) {
     const [title, setTitle] = useState('');
@@ -10,12 +13,21 @@ function Todomodel({ modelOpen, setModelOpen }) {
     const [tag, setTag] = useState('');
     const [status, setStatus] = useState('open');
     const [deadline, setDeadline] = useState('');
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(title && description && tag && status && deadline){
-            dispatchEvent(addTodo)
+            dispatch(addTodo({
+                id: uuid(),
+                title,
+                description,
+                tag,
+                status,
+                deadline: new Date().toLocaleDateString(),
+            }));
+            toast.success('Task Added Successfully')
         }
     }
   return (
