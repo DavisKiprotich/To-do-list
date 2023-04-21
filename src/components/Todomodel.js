@@ -28,6 +28,9 @@ function Todomodel({ modelOpen, setModelOpen }) {
                 deadline: new Date().toLocaleDateString(),
             }));
             toast.success('Task Added Successfully')
+            setModelOpen(false);
+        }else{
+            toast.error('Fill all the blank spaces')
         }
     }
   return (
