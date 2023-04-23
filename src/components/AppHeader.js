@@ -14,7 +14,7 @@ function AppHeader() {
       <option value='done'>DONE</option>
       <option value='overdue'>OVERDUE</option>
     </SelectButton>
-    <Todomodel modelOpen={modelOpen} setModelOpen={setModelOpen} />
+    <Todomodel type = 'add' modelOpen={modelOpen} setModelOpen={setModelOpen} />
     </div>
     
   )
