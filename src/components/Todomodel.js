@@ -7,7 +7,7 @@ import  { addTodo } from '../slices/todoSlice';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
-function Todomodel({ modelOpen, setModelOpen }) {
+function Todomodel({ type, modelOpen, setModelOpen }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [tag, setTag] = useState('');
@@ -18,17 +18,25 @@ function Todomodel({ modelOpen, setModelOpen }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(title === ''){
+            toast.error('Please enter your title')
+        }
         if(title && description && tag && status && deadline){
-            dispatch(addTodo({
-                id: uuid(),
-                title,
-                description,
-                tag,
-                status,
-                deadline: new Date().toLocaleDateString(),
-            }));
-            toast.success('Task Added Successfully')
-            setModelOpen(false);
+            if(type === 'add'){
+                dispatch(addTodo({
+                    id: uuid(),
+                    title,
+                    description,
+                    tag,
+                    status,
+                    deadline: new Date().toLocaleDateString(),
+                }));
+                toast.success('Task Added Successfully')
+                setModelOpen(false);
+            }
+            if(type === 'update'){
+                console.log('updating Task')
+            }
         }else{
             toast.error('Fill all the blank spaces')
         }
@@ -47,7 +55,7 @@ function Todomodel({ modelOpen, setModelOpen }) {
                     <MdOutlineClose/>
                 </div>
                 <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-                    <h1 className={styles.formTitle}>Add Task</h1>
+                    <h1 className={styles.formTitle}>{type === 'update' ? 'Update' : 'Add'} Task</h1>
                     <label htmlFor='title'>
                         Title
                         <input type='text' id='title' value={title}
@@ -83,7 +91,7 @@ function Todomodel({ modelOpen, setModelOpen }) {
                         </select>
                     </label>  
                     <div className={styles.buttonContainer}>
-                        <Button type='submit' variant='primary'>Add Task</Button>
+                        <Button type='submit' variant='primary'>{type === 'update' ? 'Update' : 'Add'} Task</Button>
                         <Button type='button' variant='secondary' 
                         onClick={() => setModelOpen(false)}
                         onKeyDown={() => setModelOpen(false)}
