@@ -21,7 +21,7 @@ function Todomodel({ type, modelOpen, setModelOpen }) {
         if(title === ''){
             toast.error('Please enter your title')
         }
-        if(title && description && tag && status && deadline){
+        if(title && description && status && deadline){
             if(type === 'add'){
                 dispatch(addTodo({
                     id: uuid(),
