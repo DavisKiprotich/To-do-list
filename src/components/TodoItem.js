@@ -17,7 +17,7 @@ function TodoItem({ todo }) {
         toast.success('TODO deleted successfully')
     }
     const handleEdit =() => {
-        console.log('updating');
+        setUpdateModelOpen(true);
     }
 
   return (
@@ -42,7 +42,7 @@ function TodoItem({ todo }) {
             </div>
         </div>
 
-        <TodoModel modelOpen={updateModelOpen} setModelOpen ={setUpdateModelOpen}/>
+        <TodoModel type='update' todo modelOpen={updateModelOpen} setModelOpen ={setUpdateModelOpen}/>
     </>
   )
 }

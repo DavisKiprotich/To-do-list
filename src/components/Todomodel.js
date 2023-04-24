@@ -3,11 +3,11 @@ import toast from 'react-hot-toast';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md'
 import Button from './Button';
-import  { addTodo } from '../slices/todoSlice';
+import  { addTodo, updateTodo } from '../slices/todoSlice';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
-function Todomodel({ type, modelOpen, setModelOpen }) {
+function Todomodel({ type, modelOpen, setModelOpen, todo }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [tag, setTag] = useState('');
@@ -15,11 +15,23 @@ function Todomodel({ type, modelOpen, setModelOpen }) {
     const [deadline, setDeadline] = useState('');
     const dispatch = useDispatch();
 
+    useEffect(() => {
+    if(type === 'update' && todo){
+        setTitle(todo.title);
+        setDescription(todo.description);
+        setStatus(todo.status)
+    }else{
+        setTitle('')
+        setDescription('')
+        setStatus('open')
+    }
+    }, [todo, type, modelOpen]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(title === ''){
-            toast.error('Please enter your title')
+            toast.error('Please enter your title');
+            return;
         }
         if(title && description && status && deadline){
             if(type === 'add'){
@@ -35,10 +47,19 @@ function Todomodel({ type, modelOpen, setModelOpen }) {
                 setModelOpen(false);
             }
             if(type === 'update'){
-                console.log('updating Task')
+                if(todo.title !== title || todo.description !== description || todo.status !== status){
+                    dispatch(updateTodo({
+                        ...todo,
+                        title,
+                        description,
+                        status,
+                    }));
+                }else{
+                    toast.error('No changes made')
+                }
             }
         }else{
-            toast.error('Fill all the blank spaces')
+            toast.error('Fill the blank space')
         }
     }
   return (
