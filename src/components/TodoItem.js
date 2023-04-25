@@ -21,12 +21,12 @@ function TodoItem({ todo }) {
     }
 
   return (
-    <>
+    <div>
         <div className={styles.item}>
             <div className= {styles.todoDetails}>
                 [ ]
                 <div className={styles.texts}>
-                    <p className={getClasses([styles.todoText, todo.status === 'complete' && styles['todoText--completed'],])}>{todo.title}</p>
+                    <p className={getClasses([styles.todoText, todo.status === 'complete' && styles['todoText--completed']])}>{todo.title}</p>
                     <p className={styles.time}>{format(new Date(todo.time), 'p, MM/dd/yyyy')}</p>
                 </div>
             </div>
@@ -43,7 +43,7 @@ function TodoItem({ todo }) {
         </div>
 
         <TodoModel type='update' todo modelOpen={updateModelOpen} setModelOpen ={setUpdateModelOpen}/>
-    </>
+    </div>
   )
 }
 
