@@ -19,10 +19,12 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
     if(type === 'update' && todo){
         setTitle(todo.title);
         setDescription(todo.description);
+        setTag(todo.tag);
         setStatus(todo.status)
     }else{
         setTitle('')
         setDescription('')
+        setTag('');
         setStatus('open')
     }
     }, [todo, type, modelOpen]);
@@ -44,7 +46,6 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
                     deadline: new Date().toLocaleDateString(),
                 }));
                 toast.success('Task Added Successfully')
-                setModelOpen(false);
             }
             if(type === 'update'){
                 if(todo.title !== title || todo.description !== description || todo.status !== status){
@@ -58,8 +59,7 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
                     toast.error('No changes made')
                 }
             }
-        }else{
-            toast.error('Fill the blank space')
+            setModelOpen(false);
         }
     }
   return (
