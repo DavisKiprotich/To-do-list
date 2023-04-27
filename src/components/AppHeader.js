@@ -7,10 +7,10 @@ import { updateFilterStatus } from '../slices/todoSlice';
 
 function AppHeader() {
   const [ modelOpen, setModelOpen ] = useState(false);
-  const initialFilterStatus = useSelector((state) => 
-    state.todo.filterStatus)
-  const [filterStatus, setFilterStatus] = useState(initialFilterStatus);
-  const dispatch = useDispatch()
+  const filterStatus = useSelector((state) => 
+    state.todo.filterStatus);
+
+  const dispatch = useDispatch();
 
   const updateFilter = (e) => {
     dispatch(updateFilterStatus(e.target.value))
@@ -19,13 +19,13 @@ function AppHeader() {
   return (
     <div className={styles.appHeader}>
     <Button variant="primary" onClick={() => setModelOpen(true)}>Add Task</Button>
-    <SelectButton id='status' value={filterStatus} onClick={updateFilter}>
+    <SelectButton id='status' value={filterStatus} onChange={updateFilter}>
       <option value='open'>OPEN</option>
       <option value='working'>WORKING</option>
       <option value='done'>DONE</option>
       <option value='overdue'>OVERDUE</option>
     </SelectButton>
-    <Todomodel type = 'add' modelOpen={modelOpen} setModelOpen={setModelOpen} />
+    <Todomodel type='add' modelOpen={modelOpen} setModelOpen={setModelOpen} />
     </div>
     
   )
