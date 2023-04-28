@@ -12,7 +12,7 @@ const getInitialTodo = () => {
 };
 
 const initialValue = {
-  filterStatus: 'all',
+  filterStatus: 'open',
   todoList: getInitialTodo(),
 }
 

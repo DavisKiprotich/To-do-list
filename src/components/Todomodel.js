@@ -122,7 +122,7 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
             </div>
         </div>
     )    
-  )
+    )
 }
 
 export default Todomodel

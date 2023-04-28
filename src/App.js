@@ -5,7 +5,6 @@ import styles from './styles/modules/app.module.scss';
 import AppHeader from './components/AppHeader';
 import AppContent from './components/AppContent';
 
-import './App.css';
 
 function App() {
   return (
