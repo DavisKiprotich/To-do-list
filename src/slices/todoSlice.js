@@ -7,7 +7,7 @@ const getInitialTodo = () => {
   if (localTodoList) {
     return JSON.parse(localTodoList);
   }
-  window.localStorage.setItem('todoList', JSON.stringify([]));
+  window.localStorage.setItem('todoList', []);
   return [];
 };
 

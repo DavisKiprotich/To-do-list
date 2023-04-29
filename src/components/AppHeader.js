@@ -19,7 +19,7 @@ function AppHeader() {
   return (
     <div className={styles.appHeader}>
     <Button variant="primary" onClick={() => setModelOpen(true)}>Add Task</Button>
-    <SelectButton id='status' value={filterStatus} onChange={updateFilter}>
+    <SelectButton id='status' value={filterStatus} onChange={(e)=>updateFilter(e)}>
       <option value='open'>OPEN</option>
       <option value='working'>WORKING</option>
       <option value='done'>DONE</option>
