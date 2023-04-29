@@ -6,7 +6,7 @@ import Button from './Button';
 import  { addTodo, updateTodo } from '../slices/todoSlice';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const dropIn = {
     hidden: {
@@ -89,7 +89,7 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
     <AnimatePresence>
         {modelOpen && (
             <motion.div className={styles.wrapper} initial={{opacity: 0}} visible={{opacity: 1}} exit={{opacity: 0}}>
-                <div className={styles.container} variants={dropIn} initial='initial' visible='visible' exit='exit'>
+                <motion.div className={styles.container} variants={dropIn} initial='initial' visible='visible' exit='exit'>
                     <motion.div className={styles.closeButton}
                     onClick={() => setModelOpen(false)}
                     onKeyDown={() => setModelOpen(false)}
@@ -145,7 +145,7 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
                             >Cancel</Button>
                         </div> 
                     </form>
-                </div>
+                </motion.div>
             </motion.div>
         )} 
     </AnimatePresence>   
