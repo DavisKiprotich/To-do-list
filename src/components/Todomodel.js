@@ -35,6 +35,7 @@ function Todomodel({ type, modelOpen, setModelOpen, todo }) {
     const [tag, setTag] = useState('');
     const [status, setStatus] = useState('open');
     const [deadline, setDeadline] = useState('');
+      
     const dispatch = useDispatch();
 
     useEffect(() => {
