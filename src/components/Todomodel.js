@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const dropIn = {
     hidden: {
         opacity: 0,
-        transform: 'scale(0.9)'
+        transform: 'scale(0.9)',
     },
     visible: {
         transform: 'scale(1)',
