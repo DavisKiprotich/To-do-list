@@ -64,8 +64,8 @@ function TodoItem({ todo }) {
                 onKeyDown={handleDelete()} role='button' tabIndex={0}>
                     <MdDelete/>
                 </div>
-                <div className={styles.icon} onClick={handleEdit()}
-                onKeyDown={handleEdit()} role='button' tabIndex={0}>
+                <div className={styles.icon} onClick={handleEdit}
+                onKeyDown={handleEdit} role='button' tabIndex={0}>
                     <MdEdit />
                 </div>
             </div>
